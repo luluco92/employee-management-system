@@ -2,6 +2,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const ctable = require('console.table');
+const p = require('./p.json');
 
 // Connect to database
 const db = mysql.createConnection( {
@@ -191,7 +192,7 @@ function cycler(x) {
           }
           if (response.viewby==='Add Role') {
             y = "INSERT INTO role (title, salary, department_id) VALUES (";
-            db.promise().query('SELECT * FROM department').then( function (rows) { rows[0].forEach(function (i) {i.value = i.id; delete i.id;i.name = i.title;delete i.title;}); 
+            db.promise().query('SELECT * FROM department').then( function (rows) { rows[0].forEach(function (i) {i.value = i.id; delete i.id;}); 
             inquirer.prompt([{
                 type: 'input',
                 message: '\x1b[36mEnter the New Role name:\x1b[0m',
