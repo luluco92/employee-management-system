@@ -2,7 +2,6 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const ctable = require('console.table');
-const p = require('./p.json');
 
 // Connect to database
 const db = mysql.createConnection( {
