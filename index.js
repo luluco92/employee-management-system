@@ -2,7 +2,6 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const ctable = require('console.table');
-const p = require('./p.json');
 
 // Connect to database
 const db = mysql.createConnection( {
@@ -156,7 +155,7 @@ function cycler(x) {
         ])
         .then((response) => {
            y += `manager_id = ${response.boss} WHERE first_name = "${response.first}" AND last_name = "${response.last}"`;
-           sql(y);
+           sql(y); // hehe you can't get promoted to be a manager in this program
         });
        });
 }            
@@ -276,43 +275,4 @@ async function isEmpty(x) {
    return true;
 }
 
-
-/*
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      message: '> Enter the name of the ENGINEER.',
-      name: 'name',
-    },
-    {
-      type: 'input',
-      message: '> Enter the ID number of the ENGINEER.',
-      name: 'id',
-      validate: isNumber,
-    },
-    {
-      type: 'input',
-      message: '> Enter the email of the ENGINEER.',
-      name: 'email',
-      validate: isEmail,
-    },
-    {
-      type: 'input',
-      message: '> Enter the github username of the ENGINEER.',
-      name: 'github',
-    },
-    {
-      type: 'list',
-      message: '> Enter the next team member:',
-      name: 'next', 
-      choices:['Engineer', 'Intern', 'End'],
-    },
-  ])
-  .then((response) => {
-    let engineer = new Engineer(response.name, response.id, response.email, response.github);
-    fs.appendFile(myhtml, generate.generateHTML(response), (error) => error ? console.error(error) : error++);
-    cycler(response.next);
-  });
-*/
 menu();
