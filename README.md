@@ -7,4 +7,6 @@ Before launching the program you must edit index.js to include the credentials f
 ## How to use
 In order to view and edit data in the database, you will be prompted with questions, some of which are multiple choice. Use arrow keys to select the choice you want for those questions. Others require you to type out names for new entries and so on. The program will terminate if you input invalid data, such as duplicate department names. In such cases, no data will be changed and you can launch the program again.
 ## Status
-- Not yet finished
+- Mostly finished
+- Optional: View by manager
+- Optional: Delete functionality
